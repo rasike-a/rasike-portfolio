@@ -1,5 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root { color-scheme: light; }
-.container { @apply max-w-6xl mx-auto px-6; }
+
+:root { 
+  color-scheme: light; 
+}
+
+.container { 
+  @apply max-w-6xl mx-auto px-6; 
+}
+
+.card {
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: saturate(120%) blur(6px);
+}
