@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 const profile = {
   name: "Rasike Abeyratne",
-  title: "Software Architect • Mentor • AI-Powered Developer • Transformation Consultant",
+  title: "Software Architect • Mentor • AI-Powered Developer • Digital Transformation Consultant • Writer & Digital Creator",
   location: "Colombo, Sri Lanka",
   tagline: "18+ years building scalable systems, guiding engineers, and delivering 10x impact through AI and digital transformation.",
   headshot: "/headshot.jpg",
@@ -19,7 +19,7 @@ const profile = {
   ],
 };
 const Section = ({ id, title, children }:{id:string;title:string;children:React.ReactNode}) => (
-  <section id={id} className="py-20"><div className="container"><h2 className="text-3xl md:text-4xl font-bold mb-8">{title}</h2>{children}</div></section>
+  <section id={id} className="py-12 sm:py-16 md:py-20"><div className="container"><h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">{title}</h2>{children}</div></section>
 );
 const Card = ({title, children}:{title:string; children:React.ReactNode}) => (
   <div className="card"><h3 className="text-xl font-semibold mb-2">{title}</h3><div className="text-slate-700">{children}</div></div>
@@ -89,29 +89,34 @@ export default function Page(){
   return (<div className="min-h-screen">
     <header className="sticky top-0 z-50 bg-white/70 backdrop-blur border-b">
       <nav className="container flex items-center justify-between py-3">
-        <a href="#home" className="font-bold text-lg">{profile.name}</a>
+        <a href="#home" className="font-bold text-base sm:text-lg">{profile.name}</a>
         <div className="hidden md:flex gap-6 text-sm">
           <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
           <a href="#gallery">Gallery</a><a href="#creations">Creations</a><a href="#services">How Can I Help You</a><a href="#contact">Contact</a>
         </div>
-        <a href={profile.resumeUrl} className="rounded-full border px-4 py-2 text-sm">Download Résumé</a>
+        <div className="flex md:hidden gap-4 text-xs">
+          <a href="#about" className="hover:underline">About</a>
+          <a href="#projects" className="hover:underline">Projects</a>
+          <a href="#contact" className="hover:underline">Contact</a>
+        </div>
+        <a href={profile.resumeUrl} className="rounded-full border px-3 sm:px-4 py-2 text-xs sm:text-sm">Résumé</a>
       </nav>
     </header>
     <section id="home" className="relative">
-      <div className="container grid md:grid-cols-2 gap-10 items-center py-16 md:py-24">
+      <div className="container grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center py-12 sm:py-16 md:py-24">
         <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.6}} className="order-2 md:order-1">
-          <h1 className="text-4xl md:text-6xl font-black leading-tight">{profile.title}</h1>
-          <p className="mt-6 text-lg text-slate-700 max-w-prose">{profile.tagline}</p>
-          <div className="mt-8 flex gap-3">
-            <a href="#contact" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm">Contact Me</a>
-            <a href={profile.resumeUrl} className="rounded-xl border px-5 py-3 text-sm">Download Résumé</a>
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight">{profile.title}</h1>
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-prose">{profile.tagline}</p>
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#contact" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm text-center">Contact Me</a>
+            <a href={profile.resumeUrl} className="rounded-xl border px-5 py-3 text-sm text-center">Download Résumé</a>
           </div>
         </motion.div>
         <motion.div initial={{opacity:0,scale:.95}} animate={{opacity:1,scale:1}} transition={{duration:.6, delay:.1}} className="order-1 md:order-2">
-          <div className="relative mx-auto w-56 h-56 md:w-72 md:h-72">
+          <div className="relative mx-auto w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72">
             <img src={profile.headshot} alt={profile.name} className="absolute inset-0 w-full h-full object-cover rounded-3xl border shadow-lg"/>
           </div>
-          <p className="text-center mt-4 text-sm text-slate-600">{profile.location}</p>
+          <p className="text-center mt-3 sm:mt-4 text-sm text-slate-600">{profile.location}</p>
         </motion.div>
       </div>
     </section>
