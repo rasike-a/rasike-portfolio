@@ -1,29 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-const profile = {
-  name: "Rasike Abeyratne",
-  title: "Software Architect • Mentor • AI-Powered Developer • Digital Transformation Consultant • Writer & Digital Creator",
-  location: "Colombo, Sri Lanka",
-  tagline: "18+ years building scalable systems, guiding engineers, and delivering 10x impact through AI and digital transformation.",
-  headshot: "/headshot.jpg",
-  resumeUrl: "/Rasike-Abeyratne-Resume.pdf",
-  email: "hello@rasike.me",
-  phone: "+94 77 3160308",
-  socials: [
-    { label: "GitHub", href: "https://github.com/raaalk" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/rasike-abeyratne" },
-    { label: "Patreon", href: "https://www.patreon.com/EchelonDigitalStudio" },
-    { label: "Wirestock", href: "https://wirestock.io/" },
-    { label: "Buy me a coffee", href: "https://buymeacoffee.com/rasike" },
-  ],
-};
-const Section = ({ id, title, children }:{id:string;title:string;children:React.ReactNode}) => (
-  <section id={id} className="py-12 sm:py-16 md:py-20"><div className="container"><h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">{title}</h2>{children}</div></section>
-);
-const Card = ({title, children}:{title:string; children:React.ReactNode}) => (
-  <div className="card"><h3 className="text-xl font-semibold mb-2">{title}</h3><div className="text-slate-700">{children}</div></div>
-);
+import { 
+  profile, 
+  aboutContent, 
+  skillCategories, 
+  projects, 
+  creations, 
+  services, 
+  galleryImages 
+} from './data';
+import { Section, Card, Button } from './components/ui';
 
 function useContactForm() {
   const [loading, setLoading] = useState(false);
@@ -99,7 +86,7 @@ export default function Page(){
           <a href="#projects" className="hover:underline">Projects</a>
           <a href="#contact" className="hover:underline">Contact</a>
         </div>
-        <a href={profile.resumeUrl} className="rounded-full border px-3 sm:px-4 py-2 text-xs sm:text-sm">Résumé</a>
+        <a href={profile.resumeUrl} className="rounded-xl border px-3 py-2 text-xs inline-flex items-center justify-center">Résumé</a>
       </nav>
     </header>
     <section id="home" className="relative">
@@ -108,8 +95,8 @@ export default function Page(){
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight">{profile.title}</h1>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-prose">{profile.tagline}</p>
           <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
-            <a href="#contact" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm text-center">Contact Me</a>
-            <a href={profile.resumeUrl} className="rounded-xl border px-5 py-3 text-sm text-center">Download Résumé</a>
+            <a href="#contact" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm text-center inline-flex items-center justify-center">Contact Me</a>
+            <a href={profile.resumeUrl} className="rounded-xl border px-5 py-3 text-sm text-center inline-flex items-center justify-center">Download Résumé</a>
           </div>
         </motion.div>
         <motion.div initial={{opacity:0,scale:.95}} animate={{opacity:1,scale:1}} transition={{duration:.6, delay:.1}} className="order-1 md:order-2">
@@ -123,8 +110,9 @@ export default function Page(){
     <Section id="about" title="About">
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-4 text-slate-700">
-          <p>I'm a full‑stack engineer and architect who loves turning complex ideas into elegant, reliable systems.</p>
-          <p>Recent work includes the Impact Analyzer ecosystem on IFS Nexus and the Echelon Digital Studio brand.</p>
+          {aboutContent.paragraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
         </div>
         <div className="card">
           <dl className="grid grid-cols-2 gap-4 text-sm">
@@ -146,43 +134,51 @@ export default function Page(){
     </Section>
     <Section id="skills" title="Skills">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <Card title="Back‑End & Cloud">Go, .NET 8, Node/TS, NestJS, PostgreSQL, Kafka/SQS, Docker, Kubernetes, KEDA, Argo CD, Azure</Card>
-        <Card title="Front‑End">React, Next.js, Tailwind, shadcn/ui</Card>
-        <Card title="Observability">Prometheus, Grafana, OpenTelemetry</Card>
-        <Card title="Security">SAST/DAST, Veracode, Pentest reviews</Card>
-        <Card title="Creative & AI">Midjourney, Sora, Resend, Photography, Wirestock</Card>
+        {skillCategories.map((category) => (
+          <Card key={category.title} title={category.title}>
+            {category.skills}
+          </Card>
+        ))}
       </div>
     </Section>
     <Section id="projects" title="Projects">
       <div className="grid md:grid-cols-2 gap-6">
-        <Card title="Impact Analyzer (Case Study)">Event-driven analysis jobs with autoscaling and metrics. Stack: Go, Kubernetes, KEDA, Prometheus, Azure.</Card>
-        <Card title="Creator Hub (WIP)">Marketplace template for images & prompts. Stack: Next.js, Tailwind, Stripe, PostgreSQL.</Card>
-        <Card title="School LMS Demo">Prototype with CI/CD and cloud deploy. Stack: Java, Angular, MongoDB, GCP.</Card>
+        {projects.map((project) => (
+          <Card key={project.title} title={project.title}>
+            {project.description} Stack: {project.technologies.join(", ")}.
+          </Card>
+        ))}
       </div>
     </Section>
     <Section id="gallery" title="Gallery">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img className="rounded-2xl object-cover aspect-[4/3] border" alt="1" src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?q=80&w=1200&auto=format&fit=crop"/>
-        <img className="rounded-2xl object-cover aspect-[4/3] border" alt="2" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop"/>
-        <img className="rounded-2xl object-cover aspect-[4/3] border" alt="3" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop"/>
-        <img className="rounded-2xl object-cover aspect-[4/3] border" alt="4" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop"/>
+        {galleryImages.map((image, index) => (
+          <img 
+            key={index}
+            className="rounded-2xl object-cover aspect-[4/3] border" 
+            alt={image.alt} 
+            src={image.src}
+            title={image.title}
+          />
+        ))}
       </div>
     </Section>
     <Section id="creations" title="Creations">
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card title="Echelon Digital Studio">AI‑assisted visuals & stories (Patreon).</Card>
-        <Card title="Wirestock Portfolio">Photography & AI image marketplace.</Card>
-        <Card title="The Barman’s Diary">Contemporary romance series.</Card>
-        <Card title="CupidTeesCards">Custom AI‑inspired T‑shirts & cards.</Card>
+        {creations.map((creation) => (
+          <Card key={creation.title} title={creation.title}>
+            {creation.description}
+          </Card>
+        ))}
       </div>
     </Section>
     <Section id="services" title="How Can I Help You">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <Card title="Architecture & Engineering">Designing and building scalable systems with Go, .NET, Node/TS & cloud‑native platforms.</Card>
-        <Card title="Digital Transformation Guidance">Modernizing workflows and adopting AI for real business impact.</Card>
-        <Card title="AI‑Augmented Development">Delivering 10x productivity by blending engineering expertise with AI tools.</Card>
-        <Card title="Mentorship & Team Growth">Coaching engineers, reviewing architectures, and guiding career development.</Card>
-        <Card title="Creative & Digital Products">Bringing ideas to life through writing, photography, and AI‑assisted creations.</Card>
+        {services.map((service) => (
+          <Card key={service.title} title={service.title}>
+            {service.description}
+          </Card>
+        ))}
       </div>
     </Section>
     <Section id="contact" title="Contact">
@@ -195,12 +191,9 @@ export default function Page(){
           <input className="border rounded-xl px-4 py-3 w-full" name="subject" placeholder="Subject" required/>
           <textarea className="border rounded-xl px-4 py-3 w-full min-h-40" name="message" placeholder="Tell me about your project or idea…" required/>
           <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off"/>
-          <button 
-            className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:opacity-90 disabled:opacity-50" 
-            disabled={loading}
-          >
+          <Button type="submit" disabled={loading}>
             {loading ? "Sending..." : "Send Message"}
-          </button>
+          </Button>
           {success && <p className="text-green-700 text-sm mt-2">✅ Thanks! I'll get back to you soon.</p>}
           {error && <p className="text-red-700 text-sm mt-2">❌ {error}</p>}
         </form>
