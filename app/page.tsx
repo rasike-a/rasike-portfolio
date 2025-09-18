@@ -79,7 +79,7 @@ export default function Page(){
         <a href="#home" className="font-bold text-base sm:text-lg">{profile.name}</a>
         <div className="hidden md:flex gap-6 text-sm">
           <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
-          <a href="#gallery">Gallery</a><a href="#creations">Creations</a><a href="#services">How Can I Help You</a><a href="#contact">Contact</a>
+          <a href="#gallery">Gallery</a><a href="#creations">Creations</a><a href="#services">Work With Me</a><a href="#contact">Contact</a>
         </div>
         <div className="flex md:hidden gap-4 text-xs">
           <a href="#about" className="hover:underline">About</a>
@@ -172,7 +172,7 @@ export default function Page(){
         ))}
       </div>
     </Section>
-    <Section id="services" title="How Can I Help You">
+    <Section id="services" title="Work With Me">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service) => (
           <Card key={service.title} title={service.title}>
