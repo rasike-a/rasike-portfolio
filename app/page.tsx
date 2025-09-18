@@ -10,7 +10,7 @@ import {
   services, 
   galleryImages 
 } from './data';
-import { Section, Card, Button } from './components/ui';
+import { Section, Card } from './components/ui';
 
 function useContactForm() {
   const [loading, setLoading] = useState(false);
@@ -191,9 +191,13 @@ export default function Page(){
           <input className="border rounded-xl px-4 py-3 w-full" name="subject" placeholder="Subject" required/>
           <textarea className="border rounded-xl px-4 py-3 w-full min-h-40" name="message" placeholder="Tell me about your project or idea…" required/>
           <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off"/>
-          <Button type="submit" disabled={loading}>
+          <button 
+            type="submit"
+            className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm hover:opacity-90 disabled:opacity-50" 
+            disabled={loading}
+          >
             {loading ? "Sending..." : "Send Message"}
-          </Button>
+          </button>
           {success && <p className="text-green-700 text-sm mt-2">✅ Thanks! I'll get back to you soon.</p>}
           {error && <p className="text-red-700 text-sm mt-2">❌ {error}</p>}
         </form>
@@ -206,7 +210,13 @@ export default function Page(){
     <footer className="py-10 border-t">
       <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm">© {new Date().getFullYear()} {profile.name} · Rasike.me</p>
-        <div className="flex gap-3 text-sm">{profile.socials.map(s=>(<a key={s.label} href={s.href} className="underline">{s.label}</a>))}</div>
+        <div className="flex gap-3 text-sm">
+          {profile.socials.map((social) => (
+            <a key={social.label} href={social.href} className="underline hover:no-underline">
+              {social.label}
+            </a>
+          ))}
+        </div>
       </div>
     </footer>
   </div>);
