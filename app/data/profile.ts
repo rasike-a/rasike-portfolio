@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: "Rasike Abeyratne",
   title: "Software Architect • Mentor • AI-Powered Developer • Digital Transformation Consultant • Writer & Digital Creator",
   location: "Colombo, Sri Lanka",
-  tagline: "18+ years building scalable systems, guiding engineers, and delivering 10x impact through AI and digital transformation.",
+  tagline: "Transforming ideas into scalable systems for 18+ years — mentoring teams, driving digital transformation, unlocking 10× impact with AI, and shaping sustainable innovation.",
   headshot: "/headshot.jpg",
   resumeUrl: "/Rasike-Abeyratne-Resume.pdf",
   email: "hello@rasike.me",
