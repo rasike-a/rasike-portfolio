@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, type ComponentType } from "react";
 import { 
   profile, 
   aboutContent, 
@@ -70,6 +70,8 @@ function useContactForm() {
 
   return { loading, success, error, submit };
 }
+const MotionDiv = motion.div as ComponentType<any>;
+
 export default function Page(){
   const { loading, success, error, submit } = useContactForm();
   
@@ -91,20 +93,30 @@ export default function Page(){
     </header>
     <section id="home" className="relative">
       <div className="container grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center py-16 sm:py-20 md:py-24">
-        <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.6}} className="order-2 md:order-1">
+        <MotionDiv
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="order-2 md:order-1"
+        >
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight">{profile.title}</h1>
           <p className="mt-3 sm:mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-slate-700 max-w-prose leading-relaxed">{profile.tagline}</p>
           <div className="mt-5 sm:mt-6 md:mt-8 flex flex-col sm:flex-row gap-3">
             <a href="#contact" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm text-center inline-flex items-center justify-center">Contact Me</a>
             <a href={profile.resumeUrl} className="rounded-xl border px-5 py-3 text-sm text-center inline-flex items-center justify-center">Download Résumé</a>
           </div>
-        </motion.div>
-        <motion.div initial={{opacity:0,scale:.95}} animate={{opacity:1,scale:1}} transition={{duration:.6, delay:.1}} className="order-1 md:order-2">
+        </MotionDiv>
+        <MotionDiv
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="order-1 md:order-2"
+        >
           <div className="relative mx-auto w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72">
             <img src={profile.headshot} alt={profile.name} className="absolute inset-0 w-full h-full object-cover rounded-3xl border shadow-lg"/>
           </div>
           <p className="text-center mt-3 sm:mt-4 text-sm text-slate-600">{profile.location}</p>
-        </motion.div>
+        </MotionDiv>
       </div>
     </section>
     <Section id="about" title="About">

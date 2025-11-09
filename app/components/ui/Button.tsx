@@ -37,13 +37,13 @@ export function Button({
     className
   );
 
-  if (asChild) {
-    // Clone the child element and add our classes
-    const child = children as React.ReactElement;
-    return React.cloneElement(child, {
-      className: cn(baseClasses, child.props.className),
+  if (asChild && React.isValidElement(children)) {
+    const child = children as React.ReactElement<Record<string, unknown>>;
+    const newProps: Record<string, unknown> = {
+      className: cn(baseClasses, child.props?.className as string | undefined),
       ...props
-    });
+    };
+    return React.cloneElement(child, newProps);
   }
 
   return (
