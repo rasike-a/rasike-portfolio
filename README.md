@@ -83,4 +83,4 @@ This project is open source and available under the [MIT License](LICENSE).
 - Software Architect • Mentor • AI-Powered Developer • Transformation Consultant
 - Email: hello@rasike.me
 - Phone/WhatsApp: +94 77 3160308
-- [GitHub](https://github.com/raaalk) • [LinkedIn](https://www.linkedin.com/in/rasike-abeyratne)
+- [GitHub](https://github.com/raaalk) • [LinkedIn](https://www.linkedin.com/in/rasike-abeyratne)  
