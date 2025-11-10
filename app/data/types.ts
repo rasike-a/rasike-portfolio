@@ -19,10 +19,8 @@ export interface Profile {
 
 export interface Project {
   title: string;
+  domain: string;
   description: string;
-  technologies: string[];
-  link: string;
-  featured?: boolean;
 }
 
 export interface SkillCategory {

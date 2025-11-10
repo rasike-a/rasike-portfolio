@@ -1,25 +1,80 @@
 import { Project, Creation, Service, GalleryImage } from './types';
 
+export const projectsIntro =
+  "A selection of projects that reflect my experience in architecture, AI integration, DevOps automation, and digital transformation across diverse domains.";
+
 export const projects: Project[] = [
   {
-    title: "Impact Analyzer (Case Study)",
-    description: "Event-driven analysis jobs with autoscaling and metrics.",
-    technologies: ["Go", "Kubernetes", "KEDA", "Prometheus", "Azure"],
-    link: "#",
-    featured: true
+    title: "Impact Analyzer",
+    domain: "Enterprise DevTools / AI-assisted Analysis",
+    description:
+      "A scalable impact analysis platform built with Go and Java microservices on Kubernetes and Azure CI/CD. It evaluates how core updates affect custom modules, using event-driven processing and Prometheus-based performance monitoring."
   },
   {
-    title: "Creator Hub (WIP)",
-    description: "Marketplace template for images & prompts.",
-    technologies: ["Next.js", "Tailwind", "Stripe", "PostgreSQL"],
-    link: "#",
-    featured: true
+    title: "Developer Studio",
+    domain: "Developer Productivity / Automation",
+    description:
+      "An integrated development framework automating metadata generation and boilerplate code creation. Enhanced developer efficiency with static analysis, secure pipelines, and continuous integration for high-quality delivery."
   },
   {
-    title: "School LMS Demo",
-    description: "Prototype with CI/CD and cloud deploy.",
-    technologies: ["Java", "Angular", "MongoDB", "GCP"],
-    link: "#"
+    title: "Sales Force Automation (SFA)",
+    domain: "Sales / CRM",
+    description:
+      "A cloud-based sales automation platform built with .NET, Angular, and Node.js to streamline operations, automate workflows, and provide real-time insights for sales teams and managers."
+  },
+  {
+    title: "LogisticOne",
+    domain: "Supply Chain / Logistics",
+    description:
+      "A logistics and supply-chain platform providing real-time visibility into costs, inventory, and transport data. Designed with mobile-ready dashboards to optimize operations and reduce overhead."
+  },
+  {
+    title: "Cancer Research Information System (CCIA)",
+    domain: "Healthcare / Research Informatics",
+    description:
+      "A modern research data management system using React, NestJS, and MySQL with AWS containerization. Enabled researchers to store, analyze, and visualize clinical datasets securely and efficiently."
+  },
+  {
+    title: "Cloud Smart School",
+    domain: "Education Technology / e-Learning",
+    description:
+      "A cloud-based learning and school management solution built with Java, Angular, and Kubernetes. Integrated student tracking, digital classrooms, and analytics to power hybrid learning experiences."
+  },
+  {
+    title: "Continuous Delivery & Automation Framework",
+    domain: "DevOps / Software Engineering",
+    description:
+      "An enterprise CI/CD framework automating build, test, and release workflows using Jenkins, SonarQube, and Selenium. Improved release velocity and ensured quality through full automation."
+  },
+  {
+    title: "Test Automation Framework",
+    domain: "QA Automation / Engineering Productivity",
+    description:
+      "A no-code UI automation framework built with Node.js and WebDriverIO. Allowed QA teams to define test cases via Excel sheets, enabling scalable test automation integrated with CI/CD pipelines."
+  },
+  {
+    title: "Financial Data Integration API (DCP)",
+    domain: "FinTech / Market Data",
+    description:
+      "A unified API platform for ingesting and validating financial data from global providers. Enabled real-time synchronization, validation, and notifications across distributed systems."
+  },
+  {
+    title: "Enterprise Trading Platform",
+    domain: "FinTech / Real-time Trading Systems",
+    description:
+      "A high-performance trading and market data platform designed to deliver real-time stock and financial information with near-zero latency. Built using modern JavaScript frameworks and .NET back-end services, it supported seamless trading across multiple markets and devices with responsive design and scalable data dissemination infrastructure."
+  },
+  {
+    title: "Excel Add-In for Market Data",
+    domain: "FinTech / Data Analytics",
+    description:
+      "A Microsoft Excel add-in built with C# and Excel DNA to access live financial data directly from enterprise APIs. Empowered analysts with real-time modeling and forecasting within Excel."
+  },
+  {
+    title: "Web Carbon Emission Analyzer",
+    domain: "Sustainability / Web Performance",
+    description:
+      "A platform for assessing and reducing website carbon footprints. Designed algorithms and dashboards to analyze performance and provide actionable emission reduction insights."
   }
 ];
 

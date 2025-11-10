@@ -1,13 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect, type ComponentType } from "react";
-import { 
-  profile, 
-  aboutContent, 
-  skillCategories, 
-  projects, 
-  creations, 
-  services, 
+import {
+  profile,
+  aboutContent,
+  skillCategories,
+  projects,
+  projectsIntro,
+  creations,
+  services,
   galleryImages,
   workWithMeIntro,
   workWithMeOutro
@@ -191,12 +192,26 @@ export default function Page(){
       </div>
     </Section>
     <Section id="projects" title="Projects">
-      <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((project) => (
-          <Card key={project.title} title={project.title}>
-            {project.description} Stack: {project.technologies.join(", ")}.
-          </Card>
-        ))}
+      <div className="space-y-8">
+        <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify">
+          {projectsIntro}
+        </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <Card
+              key={project.title}
+              title={project.title}
+              className="h-full transition-shadow hover:shadow-lg"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                {project.domain}
+              </p>
+              <p className="text-sm leading-relaxed text-justify">
+                {project.description}
+              </p>
+            </Card>
+          ))}
+        </div>
       </div>
     </Section>
     <Section id="gallery" title="Gallery">
