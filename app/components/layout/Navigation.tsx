@@ -42,9 +42,11 @@ export function Navigation() {
       </div>
       
       {/* Resume Button */}
-      <a 
-        href={profile.resumeUrl} 
+      <a
+        href={profile.resumeUrl}
         className="rounded-xl border px-3 py-2 text-xs inline-flex items-center justify-center hover:bg-slate-50"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Résumé
       </a>

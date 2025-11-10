@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState, type ComponentType } from "react";
+import { useState, useEffect, type ComponentType } from "react";
 import { 
   profile, 
   aboutContent, 
@@ -74,6 +74,11 @@ const MotionDiv = motion.div as ComponentType<any>;
 
 export default function Page(){
   const { loading, success, error, submit } = useContactForm();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   
   return (<div className="min-h-screen">
     <header className="sticky top-0 z-50 bg-white/70 backdrop-blur border-b">
@@ -88,28 +93,44 @@ export default function Page(){
           <a href="#projects" className="hover:underline">Projects</a>
           <a href="#contact" className="hover:underline">Contact</a>
         </div>
-        <a href={profile.resumeUrl} className="rounded-xl border px-3 py-2 text-xs inline-flex items-center justify-center">Résumé</a>
+        <a
+          href={profile.resumeUrl}
+          className="rounded-xl border px-3 py-2 text-xs inline-flex items-center justify-center"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Résumé
+        </a>
       </nav>
     </header>
     <section id="home" className="relative">
       <div className="container grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center py-16 sm:py-20 md:py-24">
         <MotionDiv
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={isClient ? { opacity: 0, y: 20 } : false}
+          animate={isClient ? { opacity: 1, y: 0 } : undefined}
+          transition={isClient ? { duration: 0.6 } : undefined}
           className="order-2 md:order-1"
         >
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight">{profile.title}</h1>
-          <p className="mt-3 sm:mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-slate-700 max-w-prose leading-relaxed">{profile.tagline}</p>
+          <p className="mt-3 sm:mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-slate-700 max-w-prose leading-relaxed text-justify">
+            {profile.tagline}
+          </p>
           <div className="mt-5 sm:mt-6 md:mt-8 flex flex-col sm:flex-row gap-3">
             <a href="#contact" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm text-center inline-flex items-center justify-center">Contact Me</a>
-            <a href={profile.resumeUrl} className="rounded-xl border px-5 py-3 text-sm text-center inline-flex items-center justify-center">Download Résumé</a>
+            <a
+              href={profile.resumeUrl}
+              className="rounded-xl border px-5 py-3 text-sm text-center inline-flex items-center justify-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download Résumé
+            </a>
           </div>
         </MotionDiv>
         <MotionDiv
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          initial={isClient ? { opacity: 0, scale: 0.95 } : false}
+          animate={isClient ? { opacity: 1, scale: 1 } : undefined}
+          transition={isClient ? { duration: 0.6, delay: 0.1 } : undefined}
           className="order-1 md:order-2"
         >
           <div className="relative mx-auto w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72">
@@ -123,7 +144,9 @@ export default function Page(){
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-4 text-slate-700">
           {aboutContent.paragraphs.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
+            <p key={index} className="text-justify">
+              {paragraph}
+            </p>
           ))}
         </div>
         <div className="card">
@@ -134,7 +157,13 @@ export default function Page(){
               <dt className="text-slate-500 mb-2">Links</dt>
               <dd className="flex flex-wrap gap-2">
                 {profile.socials.map((s) => (
-                  <a key={s.label} href={s.href} className="rounded-full border px-3 py-1 text-sm hover:bg-white">
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    className="rounded-full border px-3 py-1 text-sm hover:bg-white"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {s.label}
                   </a>
                 ))}
@@ -148,7 +177,13 @@ export default function Page(){
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {skillCategories.map((category) => (
           <Card key={category.title} title={category.title}>
-            {category.skills}
+            <ul className="space-y-2 text-sm leading-relaxed">
+              {category.skills.map((skill) => (
+                <li key={skill} className="list-disc pl-5 text-justify marker:text-slate-400">
+                  {skill}
+                </li>
+              ))}
+            </ul>
           </Card>
         ))}
       </div>
@@ -215,7 +250,9 @@ export default function Page(){
         </form>
         <div className="card">
           <h3 className="font-semibold mb-2">Work with me</h3>
-          <p className="text-slate-700 text-sm">Consulting, part‑time engineering, product prototyping, performance audits, and creative collaborations.</p>
+          <p className="text-slate-700 text-sm text-justify">
+            Consulting, part‑time engineering, product prototyping, performance audits, and creative collaborations.
+          </p>
         </div>
       </div>
     </Section>
@@ -224,7 +261,13 @@ export default function Page(){
         <p className="text-sm">© {new Date().getFullYear()} {profile.name} · Rasike.me</p>
         <div className="flex gap-3 text-sm">
           {profile.socials.map((social) => (
-            <a key={social.label} href={social.href} className="underline hover:no-underline">
+            <a
+              key={social.label}
+              href={social.href}
+              className="underline hover:no-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {social.label}
             </a>
           ))}

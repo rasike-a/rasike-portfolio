@@ -27,7 +27,7 @@ export interface Project {
 
 export interface SkillCategory {
   title: string;
-  skills: string;
+  skills: string[];
 }
 
 export interface GalleryImage {

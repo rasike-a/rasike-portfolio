@@ -10,18 +10,20 @@ export const profile: Profile = {
   email: "hello@rasike.me",
   phone: "+94 77 3160308",
   socials: [
-    { label: "GitHub", href: "https://github.com/raaalk" },
+    { label: "GitHub", href: "https://github.com/rasike-a" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/rasike-abeyratne" },
-    { label: "Patreon", href: "https://www.patreon.com/EchelonDigitalStudio" },
-    { label: "Wirestock", href: "https://wirestock.io/" },
+    { label: "Amazon", href: "https://author.amazon.com/claim/join?query=rasike+abeyratne" },
+    { label: "Facebook", href: "https://www.facebook.com/rasike.abeyratne/" },
     { label: "Buy me a coffee", href: "https://buymeacoffee.com/rasike" },
+    { label: "Patreon", href: "https://www.patreon.com/EchelonDigitalStudio" },
   ],
 };
 
 // About section content
 export const aboutContent = {
-  paragraphs: [
-    "I'm a full‑stack engineer and architect who loves turning complex ideas into elegant, reliable systems.",
-    "Recent work includes the Impact Analyzer ecosystem on IFS Nexus and the Echelon Digital Studio brand."
-  ]
+  paragraphs: [`Hi, I’m Rasike Abeyratne — a Software Architect and Full-Stack Engineer with over 18 years of experience building scalable, high-performance solutions. My expertise covers Java, .NET, Go, Node.js, and TypeScript, with strong foundations in microservices, cloud computing, and DevOps automation.
+
+I specialize in designing secure, maintainable architectures that align technology with business goals while fostering collaboration and innovation across teams. I’m also passionate about AI literacy and intelligent systems, exploring how artificial intelligence can enhance productivity and creativity through responsible, practical use.
+
+To me, great engineering is about clarity, purpose, and impact — creating technology that lasts and drives meaningful progress.`]
 };
