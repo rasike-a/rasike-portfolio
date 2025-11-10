@@ -44,26 +44,79 @@ export const creations: Creation[] = [
   }
 ];
 
+export const workWithMeIntro =
+  "I collaborate with startups, creators, and organizations who want to bring ideas to life through technology, design, and intelligent systems. Whether you’re building software, exploring AI, or seeking creative or educational expertise — here’s how we can work together.";
+
+export const workWithMeOutro =
+  "Have an idea, a project, or a challenge in mind? Let’s build something extraordinary together.";
+
 export const services: Service[] = [
   {
-    title: "Architecture & Engineering",
-    description: "Designing and building scalable systems with Go, .NET, Node/TS & cloud‑native platforms."
+    title: "For Tech Teams & Startups",
+    summary: "Let’s design systems that scale.",
+    items: [
+      "Software architecture and system design",
+      "Full-stack web development (Java, .NET, Go, Node.js, React, Angular, Next.js)",
+      "Cloud migration and DevOps automation (Azure / AWS / GCP)",
+      "API strategy, performance optimization, and CI/CD integration"
+    ],
+    cta: {
+      label: "→ Schedule a technical consultation or propose a project collaboration.",
+      href: "#contact"
+    }
   },
   {
-    title: "Digital Transformation Guidance",
-    description: "Modernizing workflows and adopting AI for real business impact."
+    title: "For Innovators Exploring AI",
+    summary: "Turn ideas into intelligent experiences.",
+    items: [
+      "Agentic AI design and workflow automation",
+      "Generative AI integration across text, image, and data",
+      "Machine learning–based personalization and insights",
+      "AI strategy, prototyping, and implementation"
+    ],
+    cta: {
+      label: "→ Discuss your AI concept or request a proof-of-concept build.",
+      href: "#contact"
+    }
   },
   {
-    title: "AI‑Augmented Development",
-    description: "Delivering 10x productivity by blending engineering expertise with AI tools."
+    title: "For Creative Professionals & Businesses",
+    summary: "Bring imagination to life through technology and design.",
+    items: [
+      "AI-assisted digital art and visual storytelling",
+      "Product imagery and content generation for brands",
+      "Marketplace-ready digital packs and creative collections"
+    ],
+    cta: {
+      label: "→ Commission a creative pack or collaborate on a visual concept.",
+      href: "#contact"
+    }
   },
   {
-    title: "Mentorship & Team Growth",
-    description: "Coaching engineers, reviewing architectures, and guiding career development."
+    title: "For Educators & Students",
+    summary: "Empowering the next generation of learners.",
+    items: [
+      "IGCSE learning content development (Maths, Physics, STEM)",
+      "Curriculum design and structured study materials",
+      "Educational technology and interactive learning solutions"
+    ],
+    cta: {
+      label: "→ Request resource development or academic collaboration.",
+      href: "#contact"
+    }
   },
   {
-    title: "Creative & Digital Products",
-    description: "Bringing ideas to life through writing, photography, and AI‑assisted creations."
+    title: "For Collaborators & Partners",
+    summary: "Let’s shape the future — together.",
+    items: [
+      "Joint product ventures and startup partnerships",
+      "Research collaborations in AI, education, and innovation",
+      "Mentorship, writing, and speaking engagements"
+    ],
+    cta: {
+      label: "→ Reach out for partnership or co-creation opportunities.",
+      href: "#contact"
+    }
   }
 ];
 

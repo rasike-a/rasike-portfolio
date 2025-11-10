@@ -77,6 +77,15 @@ jspm_packages/
 # Optional npm cache directory
 .npm
 
+# Local build artifacts and analysis
+.baseline-analytics/
+.baseline-cache/
+baseline-check.config.js
+baseline-report.json
+best-practices.md
+.npm-cache/
+*.pdf
+
 # Optional eslint cache
 .eslintcache
 

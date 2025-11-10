@@ -6,5 +6,5 @@ export * from './skills';
 
 // Re-export commonly used data for convenience
 export { profile, aboutContent } from './profile';
-export { projects, creations, services, galleryImages } from './projects';
+export { projects, creations, services, galleryImages, workWithMeIntro, workWithMeOutro } from './projects';
 export { skillCategories, detailedSkills } from './skills';

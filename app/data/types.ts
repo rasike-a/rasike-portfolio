@@ -42,9 +42,16 @@ export interface Creation {
   link?: string;
 }
 
+export interface ServiceCTA {
+  label: string;
+  href: string;
+}
+
 export interface Service {
   title: string;
-  description: string;
+  summary: string;
+  items: string[];
+  cta?: ServiceCTA;
 }
 
 // Contact form types

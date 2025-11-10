@@ -8,7 +8,9 @@ import {
   projects, 
   creations, 
   services, 
-  galleryImages 
+  galleryImages,
+  workWithMeIntro,
+  workWithMeOutro
 } from './data';
 import { Section, Card } from './components/ui';
 
@@ -220,12 +222,45 @@ export default function Page(){
       </div>
     </Section>
     <Section id="services" title="Work With Me">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service) => (
-          <Card key={service.title} title={service.title}>
-            {service.description}
-          </Card>
-        ))}
+      <div className="space-y-8">
+        <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify">
+          {workWithMeIntro}
+        </p>
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <Card key={service.title} title={service.title}>
+              <p className="text-slate-700 text-sm font-medium leading-relaxed">
+                {service.summary}
+              </p>
+              <ul className="mt-4 space-y-2 text-sm leading-relaxed">
+                {service.items.map((item) => (
+                  <li key={item} className="list-disc pl-5 text-justify marker:text-slate-400">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              {service.cta && (
+                <a
+                  href={service.cta.href}
+                  className="mt-4 inline-flex text-sm font-semibold text-slate-900 hover:underline"
+                >
+                  {service.cta.label}
+                </a>
+              )}
+            </Card>
+          ))}
+        </div>
+        <p className="text-slate-900 text-sm sm:text-base leading-relaxed text-center font-semibold">
+          {workWithMeOutro}{" "}
+          <a href="#contact" className="underline decoration-dotted underline-offset-4">
+            Contact me
+          </a>{" "}
+          or{" "}
+          <a href="#contact" className="underline decoration-dotted underline-offset-4">
+            schedule a call
+          </a>
+          .
+        </p>
       </div>
     </Section>
     <Section id="contact" title="Contact">
