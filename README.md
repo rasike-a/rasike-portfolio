@@ -20,8 +20,8 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, and Ta
 - **Email Service**: Resend
 - **Deployment**: Vercel-ready
 
-## 📱 Sections
-
+## 📱 Sections 
+   
 Hero → About → Skills → Projects → Gallery → Creations → How Can I Help You → Contact
 
 ## 🚀 Getting Started
@@ -43,7 +43,7 @@ cd rasike-portfolio
 npm install
 
 # Start the development server
-npm run dev
+npm run dev 
 ```
 
 Visit `http://localhost:3000` to see the portfolio.
