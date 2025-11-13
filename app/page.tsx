@@ -74,6 +74,8 @@ function useContactForm() {
   return { loading, success, error, submit };
 }
 const MotionDiv = motion.div as ComponentType<any>;
+const SHOW_GALLERY = false;
+const SHOW_CREATIONS = false;
 
 export default function Page(){
   const { loading, success, error, submit } = useContactForm();
@@ -88,8 +90,11 @@ export default function Page(){
       <nav className="container flex items-center justify-between py-3">
         <a href="#home" className="font-bold text-base sm:text-lg">{profile.name}</a>
         <div className="hidden md:flex gap-6 text-sm">
-          <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
-          <a href="#gallery">Gallery</a><a href="#creations">Creations</a><a href="#services">Work With Me</a><a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Work With Me</a>
+          <a href="#contact">Contact</a>
         </div>
         <div className="flex md:hidden gap-4 text-xs">
           <a href="#about" className="hover:underline">About</a>
@@ -214,28 +219,32 @@ export default function Page(){
         </div>
       </div>
     </Section>
-    <Section id="gallery" title="Gallery">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {galleryImages.map((image, index) => (
-          <img 
-            key={index}
-            className="rounded-2xl object-cover aspect-[4/3] border" 
-            alt={image.alt} 
-            src={image.src}
-            title={image.title}
-          />
-        ))}
-      </div>
-    </Section>
-    <Section id="creations" title="Creations">
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {creations.map((creation) => (
-          <Card key={creation.title} title={creation.title}>
-            {creation.description}
-          </Card>
-        ))}
-      </div>
-    </Section>
+    {SHOW_GALLERY && (
+      <Section id="gallery" title="Gallery">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {galleryImages.map((image, index) => (
+            <img
+              key={index}
+              className="rounded-2xl object-cover aspect-[4/3] border"
+              alt={image.alt}
+              src={image.src}
+              title={image.title}
+            />
+          ))}
+        </div>
+      </Section>
+    )}
+    {SHOW_CREATIONS && (
+      <Section id="creations" title="Creations">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {creations.map((creation) => (
+            <Card key={creation.title} title={creation.title}>
+              {creation.description}
+            </Card>
+          ))}
+        </div>
+      </Section>
+    )}
     <Section id="services" title="Work With Me">
       <div className="space-y-8">
         <p className="text-slate-700 text-sm sm:text-base leading-relaxed text-justify">

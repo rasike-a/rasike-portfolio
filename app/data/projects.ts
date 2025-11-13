@@ -148,15 +148,15 @@ export const services: Service[] = [
     }
   },
   {
-    title: "For Educators & Students",
-    summary: "Empowering the next generation of learners.",
+    title: "For Engineering Leaders & Teams",
+    summary: "Elevate delivery velocity and technical stewardship across your organization.",
     items: [
-      "IGCSE learning content development (Maths, Physics, STEM)",
-      "Curriculum design and structured study materials",
-      "Educational technology and interactive learning solutions"
+      "Architecture deep-dives and modernization roadmaps aligned with business goals",
+      "Developer enablement playbooks, platform tooling, and automation accelerators",
+      "Team coaching on delivery workflows, quality gates, observability, and reliability"
     ],
     cta: {
-      label: "→ Request resource development or academic collaboration.",
+      label: "→ Align on an engineering uplift or modernization initiative.",
       href: "#contact"
     }
   },

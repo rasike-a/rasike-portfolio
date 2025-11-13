@@ -4,8 +4,6 @@ const navigationLinks = [
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-  { href: '#gallery', label: 'Gallery' },
-  { href: '#creations', label: 'Creations' },
   { href: '#services', label: 'How Can I Help You' },
   { href: '#contact', label: 'Contact' },
 ];
