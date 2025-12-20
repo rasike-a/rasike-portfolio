@@ -10,7 +10,7 @@ export const profile: Profile = {
   email: "hello@rasike.me",
   phone: "+94 77 3160308",
   socials: [
-    { label: "GitHub", href: "https://github.com/rasike-a" },
+    { label: "GitHub", href: "https://github.com/rasike-dev" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/rasike-abeyratne" },
     { label: "Amazon", href: "https://author.amazon.com/claim/join?query=rasike+abeyratne" },
     { label: "Facebook", href: "https://www.facebook.com/rasike.abeyratne/" },
